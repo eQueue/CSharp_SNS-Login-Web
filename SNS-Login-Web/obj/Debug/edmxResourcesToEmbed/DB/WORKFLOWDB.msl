@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WORKFLOWDBModelStoreContainer" CdmEntityContainer="WORKFLOWDB">
+    <EntitySetMapping Name="TblUserData">
+      <EntityTypeMapping TypeName="WORKFLOWDBModel.TblUserData">
+        <MappingFragment StoreEntitySet="TblUserData">
+          <ScalarProperty Name="C_snsNameData" ColumnName="_snsNameData" />
+          <ScalarProperty Name="C_profileData" ColumnName="_profileData" />
+          <ScalarProperty Name="C_nickNameData" ColumnName="_nickNameData" />
+          <ScalarProperty Name="C_emailData" ColumnName="_emailData" />
+          <ScalarProperty Name="C_IdData" ColumnName="_IdData" />
+          <ScalarProperty Name="C_idx" ColumnName="_idx" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="uspGetUserData" FunctionName="WORKFLOWDBModel.Store.uspGetUserData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WORKFLOWDBModel.uspGetUserData_Result">
+          <ScalarProperty Name="C_idx" ColumnName="_idx" />
+          <ScalarProperty Name="C_IdData" ColumnName="_IdData" />
+          <ScalarProperty Name="C_emailData" ColumnName="_emailData" />
+          <ScalarProperty Name="C_nickNameData" ColumnName="_nickNameData" />
+          <ScalarProperty Name="C_profileData" ColumnName="_profileData" />
+          <ScalarProperty Name="C_snsNameData" ColumnName="_snsNameData" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspInsertUserData" FunctionName="WORKFLOWDBModel.Store.uspInsertUserData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WORKFLOWDBModel.uspInsertUserData_Result">
+          <ScalarProperty Name="C_idx" ColumnName="_idx" />
+          <ScalarProperty Name="C_IdData" ColumnName="_IdData" />
+          <ScalarProperty Name="C_emailData" ColumnName="_emailData" />
+          <ScalarProperty Name="C_nickNameData" ColumnName="_nickNameData" />
+          <ScalarProperty Name="C_profileData" ColumnName="_profileData" />
+          <ScalarProperty Name="C_snsNameData" ColumnName="_snsNameData" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

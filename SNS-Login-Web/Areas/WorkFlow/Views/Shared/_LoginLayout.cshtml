@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>WorkFlow</title>
+    @*<link rel="stylesheet" href="style.css">*@
+
+    @Styles.Render("~/Common/css/custom-css.css")
+
+
+    <script src="https://kit.fontawesome.com/51db22a717.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    @Scripts.Render("~/Common/js/custom-js.js")
+
+</head>
+<body>
+    <div class="main-container">
+        <div class="container body-content">
+            @RenderBody()
+
+
+        </div>
+        <footer>
+            <p>&copy; @DateTime.Now.Year - WorkFlow 애플리케이션</p>
+            <div class="copyright-wrap">
+                <span> 제작자: 이규홍 </span>
+            </div>
+        </footer>
+
+
+    </div>
+
+
+</body>

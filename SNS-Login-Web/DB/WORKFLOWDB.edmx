@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WORKFLOWDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TblUserData">
+          <Key>
+            <PropertyRef Name="_idx" />
+          </Key>
+          <Property Name="_idx" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="_IdData" Type="bigint" Nullable="false" />
+          <Property Name="_emailData" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="_nickNameData" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="_profileData" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="_snsNameData" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Function Name="uspGetUserData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PublicSchema">
+          <Parameter Name="p_idx" Type="bigint" Mode="In" />
+          <Parameter Name="p_IdData" Type="bigint" Mode="In" />
+          <Parameter Name="p_nickNameData" Type="nvarchar" Mode="In" />
+          <Parameter Name="p_snsNameData" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="uspInsertUserData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PublicSchema">
+          <Parameter Name="p_IdData" Type="bigint" Mode="In" />
+          <Parameter Name="p_nickNameData" Type="nvarchar" Mode="In" />
+          <Parameter Name="p_snsNameData" Type="nvarchar" Mode="In" />
+          <Parameter Name="resultCode" Type="int" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="WORKFLOWDBModelStoreContainer">
+          <EntitySet Name="TblUserData" EntityType="Self.TblUserData" Schema="PrivateSchema" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WORKFLOWDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="WORKFLOWDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TblUserData" EntityType="WORKFLOWDBModel.TblUserData" />
+          <FunctionImport Name="uspGetUserData" ReturnType="Collection(WORKFLOWDBModel.uspGetUserData_Result)">
+            <Parameter Name="p_idx" Mode="In" Type="Int64" />
+            <Parameter Name="p_IdData" Mode="In" Type="Int64" />
+            <Parameter Name="p_nickNameData" Mode="In" Type="String" />
+            <Parameter Name="p_snsNameData" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspInsertUserData" ReturnType="Collection(WORKFLOWDBModel.uspInsertUserData_Result)">
+            <Parameter Name="p_IdData" Mode="In" Type="Int64" />
+            <Parameter Name="p_nickNameData" Mode="In" Type="String" />
+            <Parameter Name="p_snsNameData" Mode="In" Type="String" />
+            <Parameter Name="resultCode" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="TblUserData">
+          <Key>
+            <PropertyRef Name="C_idx" />
+          </Key>
+          <Property Name="C_idx" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_IdData" Type="Int64" Nullable="false" />
+          <Property Name="C_emailData" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="C_nickNameData" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="C_profileData" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="C_snsNameData" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="uspGetUserData_Result">
+          <Property Type="Int64" Name="C_idx" Nullable="false" />
+          <Property Type="Int64" Name="C_IdData" Nullable="false" />
+          <Property Type="String" Name="C_emailData" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="C_nickNameData" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="C_profileData" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="C_snsNameData" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="uspInsertUserData_Result">
+          <Property Type="Int64" Name="C_idx" Nullable="false" />
+          <Property Type="Int64" Name="C_IdData" Nullable="false" />
+          <Property Type="String" Name="C_emailData" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="C_nickNameData" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="C_profileData" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="C_snsNameData" Nullable="false" MaxLength="100" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WORKFLOWDBModelStoreContainer" CdmEntityContainer="WORKFLOWDB">
+          <EntitySetMapping Name="TblUserData">
+            <EntityTypeMapping TypeName="WORKFLOWDBModel.TblUserData">
+              <MappingFragment StoreEntitySet="TblUserData">
+                <ScalarProperty Name="C_snsNameData" ColumnName="_snsNameData" />
+                <ScalarProperty Name="C_profileData" ColumnName="_profileData" />
+                <ScalarProperty Name="C_nickNameData" ColumnName="_nickNameData" />
+                <ScalarProperty Name="C_emailData" ColumnName="_emailData" />
+                <ScalarProperty Name="C_IdData" ColumnName="_IdData" />
+                <ScalarProperty Name="C_idx" ColumnName="_idx" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="uspGetUserData" FunctionName="WORKFLOWDBModel.Store.uspGetUserData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WORKFLOWDBModel.uspGetUserData_Result">
+                <ScalarProperty Name="C_idx" ColumnName="_idx" />
+                <ScalarProperty Name="C_IdData" ColumnName="_IdData" />
+                <ScalarProperty Name="C_emailData" ColumnName="_emailData" />
+                <ScalarProperty Name="C_nickNameData" ColumnName="_nickNameData" />
+                <ScalarProperty Name="C_profileData" ColumnName="_profileData" />
+                <ScalarProperty Name="C_snsNameData" ColumnName="_snsNameData" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspInsertUserData" FunctionName="WORKFLOWDBModel.Store.uspInsertUserData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WORKFLOWDBModel.uspInsertUserData_Result">
+                <ScalarProperty Name="C_idx" ColumnName="_idx" />
+                <ScalarProperty Name="C_IdData" ColumnName="_IdData" />
+                <ScalarProperty Name="C_emailData" ColumnName="_emailData" />
+                <ScalarProperty Name="C_nickNameData" ColumnName="_nickNameData" />
+                <ScalarProperty Name="C_profileData" ColumnName="_profileData" />
+                <ScalarProperty Name="C_snsNameData" ColumnName="_snsNameData" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="없음" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

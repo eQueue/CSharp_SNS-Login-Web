@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Areas/WorkFlow/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="main-wrap">
+    <header>
+        <div class="logo-wrap">
+            <h2>작업 일정 공유 사이트</h2>
+        </div>
+
+
+    </header>
+
+    <section class="Easy-sgin-in-wrap">
+        <h2>간편 회원가입</h2>
+        <ul class="sign-button-list">
+            <li><button type="button" onclick="fnSignup('/InsertUserProcess')" style="cursor: pointer; width: 300px; height: 45px;">사이트 이용에 동의하면 클릭해주세요.</button></li>
+
+            @*@using (Ajax.BeginForm("KakaoInsertUserProcess", "OAuth", null,new AjaxOptions { HttpMethod = "POST", OnSuccess = "OnSuccess" })
+            {
+                @Html.
+            }*@
+
+
+        </ul>
+    </section>
+
+
+</div>

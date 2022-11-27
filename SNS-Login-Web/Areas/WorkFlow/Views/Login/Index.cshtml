@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Areas/WorkFlow/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="main-wrap">
+    <header>
+        <div class="logo-wrap">
+            <h2>작업 일정 공유 사이트</h2>
+        </div>
+
+
+    </header>
+
+    <section class="Easy-sgin-in-wrap">
+        <h2>간편 로그인</h2>
+        <ul class="sign-button-list">
+            <li><button type="button" onclick="window.location.href='./KakaoLogin'" style="cursor:pointer;"><img src="~/Common/img/kakao_Large and Narrow (300px X 45px).png" style="width:300px; height:45px; text-align:center;" /></button></li>
+            <li><button type="button" onclick="window.location.href='./twitterLogin'" style="cursor:pointer;"><img src="~/Common/img/Twitter(300px X 45px).png" style="width: 300px; height: 45px; " /></button></li>
+        </ul>
+        <a href="./SignUp"><p class="forget-msg">회원가입</p></a>
+    </section>
+
+
+</div>

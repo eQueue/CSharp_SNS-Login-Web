@@ -1,0 +1,16 @@
+USE WORKFLOWDB
+GO
+
+IF  (OBJECT_ID('PrivateSchema') IS NOT NULL)
+DROP SCHEMA	PrivateSchema
+GO
+
+CREATE SCHEMA PrivateSchema
+GO
+
+
+IF  (OBJECT_ID('PublicSchema') IS NOT NULL)
+DROP SCHEMA	PublicSchema
+GO
+CREATE SCHEMA PublicSchema
+GO

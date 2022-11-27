@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Project_WorkFlow.DB.TblUserData>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.C_kakaoIdData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.C_emailData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.C_nickNameData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.C_profileData)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.C_kakaoIdData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.C_emailData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.C_nickNameData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.C_profileData)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.C_idx }) |
+                @Html.ActionLink("Details", "Details", new { id=item.C_idx }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.C_idx })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
